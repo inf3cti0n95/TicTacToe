@@ -1,0 +1,392 @@
+body {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.backArrow {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  top: 12px;
+  left: 12px;
+  display: none;
+}
+
+.backArrow svg {
+  fill: rgba(0, 0, 0, 0.55) !important;
+}
+
+.reglogincontainer {
+  width: 100%;
+  height: 100%;
+}
+
+.reglogincontainer .formContainer {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+  transform-origin: center center;
+}
+
+.reglogincontainer .formContainer form {
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+.reglogincontainer .formContainer input, .reglogincontainer .formContainer button {
+  display: block;
+  background: none;
+  border: rgba(0, 0, 0, 0.5) 1px solid;
+  box-shadow: 2px 2px 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 2px auto;
+  padding: 5px;
+  color: white;
+}
+
+.reglogincontainer .formContainer input:focus, .reglogincontainer .formContainer button:focus {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.reglogincontainer .formContainer button {
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s linear;
+}
+
+.reglogincontainer .formContainer button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.reglogincontainer .button {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+.reglogincontainer .button button {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  padding: 8px;
+  color: white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s linear;
+}
+
+.reglogincontainer .button button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.reglogincontainer .register {
+  width: calc(50%);
+  height: calc(100%);
+  position: absolute;
+  left: 0;
+  background: #40C4FF;
+}
+
+.reglogincontainer .register:after {
+  content: '';
+  border-right: 20px solid rgba(0, 0, 0, 0.5);
+  left: calc(100% - 10px);
+  top: 0;
+  position: absolute;
+  height: calc(100%);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.5s linear;
+  z-index: 2;
+}
+
+.reglogincontainer .register:before {
+  content: '';
+  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s linear;
+  transition-delay: 0.5s;
+  transform-origin: center right;
+}
+
+.reglogincontainer .register .regImg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: -25%;
+  transform: translate(0%, -50%);
+  opacity: 0.01;
+}
+
+.reglogincontainer .register .regImg svg {
+  height: 100%;
+  width: 100%;
+  fill: #18FFFF;
+  transition: all 5s linear;
+}
+
+.reglogincontainer .register .regButton {
+  background: white;
+  border: none;
+  z-index: 2;
+  position: absolute;
+}
+
+.reglogincontainer .register .regformContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: none;
+}
+
+.reglogincontainer .login {
+  width: calc(50%);
+  height: calc(100%);
+  position: absolute;
+  right: 0;
+  background: #18FFFF;
+}
+
+.reglogincontainer .login:before {
+  content: '';
+  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s linear;
+  transition-delay: 0.5s;
+  transform-origin: center left;
+}
+
+.reglogincontainer .login .loginImg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  right: -25%;
+  transform: translate(0%, -50%);
+  opacity: 0.01;
+}
+
+.reglogincontainer .login .loginImg svg {
+  height: 100%;
+  width: 100%;
+  fill: #40C4FF;
+  transition: all 5s linear;
+}
+
+.reglogincontainer .login .loginformContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: none;
+}
+
+body.loaded .register:after {
+  transform: scaleY(1);
+}
+
+body.loaded .register:before {
+  transform: scaleX(1);
+}
+
+body.loaded .register .regImg {
+  opacity: 0.5;
+  transition: 1s opacity linear;
+}
+
+body.loaded .register:hover .regImg svg {
+  transform: scale(1.2);
+}
+
+body.loaded .login:after {
+  transform: translateY(0%);
+}
+
+body.loaded .login:before {
+  transform: scaleX(1);
+}
+
+body.loaded .login .loginImg {
+  opacity: 0.5;
+  transition: 1s opacity linear;
+}
+
+body.loaded .login:hover .loginImg svg {
+  transform: scale(1.2);
+}
+
+#gameCreateSelectContainer {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#gameCreateSelectContainer .button {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+#gameCreateSelectContainer .button button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s linear;
+}
+
+#gameCreateSelectContainer .button button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#gameCreateSelectContainer .createGameContainer {
+  width: calc(100%);
+  height: calc(50% - 5px);
+  position: absolute;
+  top: 0;
+  background: #40C4FF;
+}
+
+#gameCreateSelectContainer .createGameContainer .createGameImg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+#gameCreateSelectContainer .createGameContainer .createGameImg svg {
+  height: 100%;
+  width: 100%;
+  fill: #18FFFF;
+  transition: all 5s linear;
+}
+
+#gameCreateSelectContainer .createGameContainer:hover .createGameImg svg {
+  transform: scale(1.2);
+}
+
+#gameCreateSelectContainer .seperator {
+  content: '';
+  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  top: calc(100%);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  transform-origin: center left;
+  transform: scaleX(0);
+}
+
+#gameCreateSelectContainer .selectGameContainer {
+  width: calc(100%);
+  height: calc(50% - 5px);
+  position: absolute;
+  bottom: 0;
+  background: #18FFFF;
+}
+
+#gameCreateSelectContainer .selectGameContainer .selectGameImg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+#gameCreateSelectContainer .selectGameContainer .selectGameImg svg {
+  height: 100%;
+  width: 100%;
+  fill: #40C4FF;
+  transition: all 5s linear;
+}
+
+#gameCreateSelectContainer .selectGameContainer:hover .selectGameImg svg {
+  transform: scale(1.2);
+}
+
+.createGameContainer.loggedin .seperator {
+  transform: scaleX(1) !important;
+  transition: transform 2s linear;
+}
+
+@media screen and (min-width: 300px) {
+  .reglogincontainer .button {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .reglogincontainer .formContainer form {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  #gameCreateSelectContainer .button {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .reglogincontainer .button {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  .reglogincontainer .formContainer form {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  #gameCreateSelectContainer .button {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .reglogincontainer .button {
+    transform: translate(-50%, -50%) scale(2);
+  }
+  .reglogincontainer .formContainer form {
+    transform: translate(-50%, -50%) scale(2);
+  }
+  #gameCreateSelectContainer .button {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+@media screen and (min-width: 1200) {
+  .reglogincontainer .button {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+  .reglogincontainer .formContainer form {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+  #gameCreateSelectContainer .button {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+}

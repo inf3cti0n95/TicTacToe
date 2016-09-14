@@ -1,0 +1,320 @@
+body
+    padding: 0
+    margin: 0
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+.backArrow
+    position: fixed
+    width:50px
+    height:50px
+    z-index: 5
+    top: 12px
+    left: 12px
+    transform
+    display: none
+    svg
+        fill: transparentize(black,0.45) !important
+
+.reglogincontainer
+    width:100%
+    height: 100%
+    .formContainer
+        position:absolute
+        z-index: 2
+        top:50%
+        left:50%
+        transform: translate(-50%,-50%)
+        height:75%
+        transform-origin:center center
+        form
+            top:50%
+            left:50%
+            position:relative
+            transform:translate(-50%,-50%) scale(2)
+        input,button
+            display:block
+            background:none
+            border:transparentize(black,0.5) 1px solid
+            box-shadow: 2px 2px 1px 2px transparentize(black,0.7)
+            margin:2px auto
+            padding:5px
+            color:white
+            &:focus
+                background:transparentize(black,0.5)
+        button
+            border: none
+            background:transparentize(black,0.6)
+            color: white
+            box-shadow: 2px 2px 5px 2px transparentize(black,0.7)
+            transition: all 0.3s linear
+            &:hover
+                background:transparentize(black,0.4)
+            
+    .button
+        z-index: 2
+        position:absolute
+        top:50%
+        left:50%
+        transform:translate(-50%,-50%) scale(2)
+        button
+            background:transparentize(black,0.6)
+            border: none
+            outline: none
+            padding: 8px
+            color: white
+            box-shadow: 2px 2px 5px 2px transparentize(black,0.7)
+            transition: all 0.3s linear
+            &:hover
+                background:transparentize(black,0.4)
+    .register
+        width: calc(50%)
+        height: calc(100%)
+        position:absolute
+        left: 0
+        background: #40C4FF
+        &:after
+            content: ''
+            border-right: 20px solid rgba(0,0,0,0.5)
+            left: calc(100% - 10px)
+            top: 0
+            position: absolute
+            height: calc(100%)
+            transform: scaleY(0)
+            transform-origin: top center
+            transition: transform 0.5s linear
+            z-index: 2
+        &:before
+            content: ''
+            border-bottom: 10px solid rgba(0,0,0,0.5)
+            bottom: 0
+            position: absolute
+            width: 100%
+            transform: scaleX(0)
+            transition: transform 0.5s linear
+            transition-delay: 0.5s
+            transform-origin: center right
+        .regImg
+            position: absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            top: 50%
+            left: -25%
+            transform: translate(0%,-50%)
+            opacity: 0.01
+            svg            
+                height: 100% 
+                width:100% 
+                fill: #18FFFF
+                transition: all 5s linear
+        .regButton
+            background: white
+            border: none
+            z-index: 2
+            position:absolute
+        .regformContainer
+            position: relative
+            z-index: 1
+            width: 100%
+            display: none
+    .login
+        width: calc(50%)
+        height: calc(100%)
+        position: absolute
+        right: 0
+        background: #18FFFF
+        &:before
+            content: ''
+            border-bottom: 10px solid rgba(0,0,0,0.5)
+            bottom: 0
+            position: absolute
+            width: 100%
+            transform: scaleX(0)
+            transition: transform 0.5s linear
+            transition-delay: 0.5s
+            transform-origin: center left
+        .loginImg
+            position: absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            top: 50%
+            right: -25%
+            transform: translate(0%,-50%)
+            opacity: 0.01
+            svg
+                height: 100% 
+                width:100% 
+                fill: #40C4FF
+                transition: all 5s linear
+        .loginformContainer
+            position: relative
+            z-index: 1
+            width: 100%
+            display: none
+        
+body.loaded
+    .register
+        &:after
+            transform: scaleY(1)
+        &:before
+            transform: scaleX(1)
+        .regImg
+            opacity: 0.5
+            transition: 1s opacity linear
+        &:hover
+            .regImg
+                svg
+                    transform: scale(1.2)
+    .login
+        &:after
+            transform: translateY(0%)
+        &:before
+            transform: scaleX(1)
+        .loginImg
+            opacity: 0.5
+            transition: 1s opacity linear        
+        &:hover
+            .loginImg
+                svg
+                    transform: scale(1.2)
+
+#gameCreateSelectContainer
+    z-index: 3
+    display: none
+    opacity:0
+    position:absolute
+    width:100%
+    height:100%
+    top:0
+    left:0
+    .button
+        z-index: 2
+        position:absolute
+        top:50%
+        left:50%
+        width:100%
+        transform:translate(-50%,-50%) scale(2)
+        button
+            position: absolute
+            top:50%
+            left:50%
+            transform:translate(-50%,-50%)
+            padding:5px
+            border: none
+            background:transparentize(black,0.6)
+            color: white
+            box-shadow: 2px 2px 5px 2px transparentize(black,0.7)
+            transition: all 0.3s linear
+            &:hover
+                background:transparentize(black,0.4)
+    .createGameContainer
+        width: calc(100%)
+        height: calc(50% - 5px)
+        position:absolute
+        top:0
+        background: #40C4FF
+        .createGameImg
+            position:absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            opacity: 0.5
+            svg
+                height: 100% 
+                width:100% 
+                fill: #18FFFF 
+                transition: all 5s linear 
+        &:hover
+            .createGameImg
+                svg
+                    transform: scale(1.2)    
+    .seperator
+        content: ''
+        border-bottom: 10px solid rgba(0, 0, 0, 0.5)
+        z-index: 2
+        top: calc(100%)
+        position: absolute
+        width: 100%
+        left: 0
+        transform-origin: center left
+        transform:scaleX(0)
+    .selectGameContainer
+        width: calc(100%)
+        height: calc(50% - 5px)
+        position:absolute
+        bottom: 0
+        background: #18FFFF 
+        .selectGameImg
+            position:absolute
+            z-index: 0
+            width: 100%
+            height: 100%
+            opacity: 0.5
+            svg
+                height: 100% 
+                width:100% 
+                fill: #40C4FF 
+                transition: all 5s linear 
+        &:hover
+            .selectGameImg
+                svg
+                    transform: scale(1.2)          
+
+.createGameContainer.loggedin
+    .seperator
+        transform: scaleX(1) !important
+        transition: transform 2s linear
+
+
+// 
+
+@media screen and (min-width:300px)
+    .reglogincontainer
+        .button
+            transform:translate(-50%,-50%) scale(1)
+        .formContainer
+            form
+                transform:scale(1) translate(-50%,-50%)
+    #gameCreateSelectContainer
+        .button
+            transform:translate(-50%,-50%) scale(1)
+        
+
+
+@media screen and (min-width:600px)
+    .reglogincontainer
+        .button
+            transform:translate(-50%,-50%) scale(1.2)
+        .formContainer
+            form
+                transform:translate(-50%,-50%) scale(1.2)
+    #gameCreateSelectContainer
+        .button
+            transform:translate(-50%,-50%) scale(1.2)
+        
+@media screen and (min-width:1000px)
+    .reglogincontainer
+        .button
+            transform:translate(-50%,-50%) scale(2)
+        .formContainer
+            form
+                transform:translate(-50%,-50%) scale(2)
+    #gameCreateSelectContainer
+        .button
+            transform:translate(-50%,-50%) scale(2)
+
+
+@media screen and (min-width:1200)
+    .reglogincontainer
+        .button
+            transform:translate(-50%,-50%) scale(2.5)
+        .formContainer
+            form
+                transform: translate(-50%,-50%) scale(2.5)
+    #gameCreateSelectContainer
+        .button
+            transform:translate(-50%,-50%) scale(2.5)
